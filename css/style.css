@@ -1,0 +1,123 @@
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #F5F5F5;
+}
+body {
+    background: whitesmoke !important;
+}
+pre {
+    display: none;
+}
+.errorMsg
+{
+
+top: 20;
+    
+    margin-top: 20px;
+    margin-left: 0;
+    padding: 26px 24px 46px;
+    font-weight: 400;
+    overflow: hidden;
+    width: 384px;
+    padding: 10% 0 0;
+    margin: auto;
+    text-align: center;
+}
+.loginform {
+    /* margin: 0 auto; */
+    /* position: absolute; */
+    top: 20;
+    
+    margin-top: 20px;
+    margin-left: 0;
+    padding: 26px 24px 46px;
+    font-weight: 400;
+    overflow: hidden;
+    width: 384px;
+    padding: 10% 0 0;
+    margin: auto;
+    text-align: center;
+}
+.lformbg {
+    background: #fff;
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,.13);
+    box-shadow: 0 1px 3px rgba(0,0,0,.13);
+    padding: 27px;
+    margin-top: 30px;
+}
+.button
+{
+background: #1e8cbe;
+    border-color: #032F40;
+    -webkit-box-shadow: inset 0 1px 0 rgba(120,200,230,.6);
+    box-shadow: inset 0 1px 0 rgba(120,200,230,.6);
+    color: #fff;
+    border-radius: 5px;
+    height: 30px;
+    line-height: 28px;
+    padding: 0 51px 2px;
+    border: 1px;
+    text-transform: uppercase;
+}
+input[type="text"], input[type="password"] {
+    background: #fbfbfb;
+    height: 40px;
+    width: 100%;
+    border: 1px solid #E0DEDE;
+}
+label {
+   color: #777;
+    font-size: 14px;
+    font-weight: 100;
+    float: left;
+}
+.errorMsg {
+    top: 20;
+    /* margin-top: 20px; */
+    margin-left: 0;
+    padding: 26px 24px 46px;
+    font-weight: 400;
+    overflow: hidden;
+    /* width: 384px; */
+    /* padding: 10% 0 0; */
+    margin: 0 auto;
+    /* text-align: center; */
+    position: absolute;
+    left: 38%;
+    /* top: 76%; */
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.topb {
+    background: #222222;
+}
+form.content1 {
+   
+    width: 23%;
+    margin-top: 51px;
+}
+.content {
+    margin-left: 18%;
+}
+select#permission {
+    width: 100%;
+    height: 40px;
+    background: #FBFBFB;
+    border: 1px solid gainsboro;
+}
+div#but {
+    margin-top: 20px;
+}
+li a {
+    color: white;
+}
+a.navbar-brand {
+    color: white;
+}
+i.fa.fa-plus {
+    margin-right: 10px;
+}
