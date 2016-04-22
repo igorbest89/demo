@@ -34,6 +34,15 @@ Class User extends CI_Model
         return $query->result();
     }
 
+    public function getAllUser($data = array())
+    {
+        $this->db->select("id_user, username");
+        $this->db->from('users');
+        $query = $this->db->get();
+        return $query->result();
+
+    }
+
 
     public function addUser($data=array())
     {
@@ -43,8 +52,14 @@ Class User extends CI_Model
         $this -> db -> where('username', $data['username']);
         $ret='';
         $query = $this -> db -> get();
+//        print_r($data);
+//        die();
         if($query -> num_rows() ==0 ) {
-            $this->db->insert("users", $data);
+
+            //print_r($data);
+            $this->db->set($data);
+            $this->db->insert("users");
+
             $ret =$this->db->insert_id();
         }else{
             $ret = '-1';
@@ -62,5 +77,9 @@ Class User extends CI_Model
         $this->db->query("DELETE FROM users WHERE id_user='".$idUser."'");
         
     }
+
+
+
+
 
 }

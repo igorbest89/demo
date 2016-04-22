@@ -8,9 +8,9 @@ body {
 body {
     background: whitesmoke !important;
 }
-pre {
-    display: none;
-}
+/*pre {*/
+    /*display: none;*/
+/*}*/
 .errorMsg
 {
 
