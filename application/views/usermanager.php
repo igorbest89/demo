@@ -43,7 +43,7 @@
      </div>
      <div class="typeWork">
         <h2>Добавить Тип работы</h2>
-         <div><input name="typeworkadd" id="typework" type="text" value=""></div><div class="btn btn-primary" onclick=""><i class="fa fa-plus"></i> </div>
+         <div><input name="typeworkadd" id="typework" type="text" value=""></div><div class="btn btn-primary" onclick="addTypeWork()"><i class="fa fa-plus"></i> </div>
 
      </div>
 
@@ -56,7 +56,14 @@
 
     function addTypeWork()
     {
-        
+        var send ={
+            'data':{
+                typework:$('$typework').val()
+            }
+        }
+        $.post('<?php echo site_url("usermanager/addTypeWork")?>', send, function(data){
+            location.reload();
+        });
     }
 
     function deleteUser(id)
