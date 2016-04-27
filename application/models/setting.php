@@ -102,4 +102,33 @@ Class Setting extends CI_Model
         $this->db->query("DELETE FROM type_product WHERE id_type_product='".$id_product."'");
     }
 
+
+    public function getAllManufacturer()
+    {
+        $this->db->select("id_manufacturer, name");
+        $this->db->from("manufacturer");
+        $query = $this->db->get();
+        $result = $query->result();
+
+        return $result;
+    }
+
+
+    public function addManufacturer($data = array())
+    {
+        $this->db->query("INSERT INTO manufacturer SET name='".$data['name_manufacturer']."' ");
+        $ret = $this->db->insert_id();
+        return $ret;
+    }
+    public function updateManufacturer($data=array())
+    {
+        $this->db->query("UPDATE manufacturer SET name='".$data['name_manufacturer']."' WHERE id_manufacturer='".$data['id_manufacturer']."'");
+    }
+
+    public function deleteManufacturer($id_product)
+    {
+        $this->db->query("DELETE FROM manufacturer WHERE id_manufacturer='".$id_product."'");
+    }
+
+
 }

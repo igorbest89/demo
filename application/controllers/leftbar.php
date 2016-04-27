@@ -2,10 +2,10 @@
 /**
  * Created by PhpStorm.
  * User: igor
- * Date: 16.04.2016
- * Time: 12:08
+ * Date: 27.04.2016
+ * Time: 21:38
  */
-class Home extends CI_Controller {
+class Leftbar extends CI_Controller {
 
     function __construct()
     {
@@ -14,7 +14,7 @@ class Home extends CI_Controller {
         if(isset($_SESSION['login']->username)&&isset($_SESSION['login']->password))
         {
             $dataLogin = $this->user->login($_SESSION['login']->username,$_SESSION['login']->password);
-           //print_r($dataLogin);
+            //print_r($dataLogin);
 
             if($dataLogin)
             {
@@ -36,11 +36,10 @@ class Home extends CI_Controller {
         $data['menu'][]= array(
             'item' =>  anchor('storege', 'Управление Складом')
         );
-        $this->load->view('common/header');
-        $this->load->view('common/msg',$data);
-        $this->load->view('common/leftbar',$data);
-        $this->load->view('home',$data);
 
-        $this->load->view('common/footer');
+        $this->load->view('common/leftbar',$data);
+
+
+
     }
 }

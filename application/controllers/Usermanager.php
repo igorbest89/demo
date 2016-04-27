@@ -38,6 +38,7 @@ class usermanager extends CI_Controller {
         $data['type_work'] = $this->setting->getAllTypeWork();
         $data['type_materials'] = $this->setting->getAllTypeMaterial();
         $data['type_product']   = $this->setting->getAllTypeProduct();
+        $data['manufacturers']  = $this->setting->getAllManufacturer();
 //        print_r($data);
 //        die();
 
@@ -100,6 +101,32 @@ class usermanager extends CI_Controller {
     public function addTypeProduct()
     {
         $this->setting->addTypeProduct($this->input->post("data"));
+    }
+
+    public function updateTypeProduct()
+    {
+        $this->setting->updateTypeProduct($this->input->post("data"));
+    }
+
+    public function deleteTypeProduct()
+    {
+        $this->setting->deleteTypeProduct($this->input->post("data"));
+    }
+
+
+    public function addManufacturer()
+    {
+        $this->setting->addManufacturer($this->input->post("data"));
+    }
+
+    public function updateManufacturer()
+    {
+        $this->setting->updateManufacturer($this->input->post("data"));
+    }
+
+    public function deleteManufacturer()
+    {
+        $this->setting->deleteManufacturer($this->input->post("data"));
     }
 
     public function test()
