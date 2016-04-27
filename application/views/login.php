@@ -9,5 +9,5 @@
 <input class="button" type="submit" value="Войти"></br>
 </form>
 </div>
-<a class="infop" href="#">Забыли пароль?</a>
+<!--<a class="infop" href="#">Забыли пароль?</a>-->
 </div>

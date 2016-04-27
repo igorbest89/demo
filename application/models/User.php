@@ -15,7 +15,10 @@ Class User extends CI_Model
         $this -> db -> limit(1);
 
         $query = $this -> db -> get();
-
+//        echo "<pre>";
+//        print_r($query);
+//        echo "</pre>";
+//        die();
         if($query -> num_rows() == 1)
         {
             return $query->result();
