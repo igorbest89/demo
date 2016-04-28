@@ -34,7 +34,7 @@ class Home extends CI_Controller {
             'item' =>  anchor('usermanager', 'Управление Пользователями')
         );
         $data['menu'][]= array(
-            'item' =>  anchor('storege', 'Управление Складом')
+            'item' =>  anchor('storage', 'Управление Складом')
         );
         $this->load->view('common/header');
         $this->load->view('common/msg',$data);

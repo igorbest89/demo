@@ -5,7 +5,16 @@
     <title>Gold Vazant Pro v 1.0</title>
     <script type="text/javascript" src="/javascript/jQuery/jquery-2.2.3.min.js"></script>
     <script type="text/javascript" src="/javascript/bPopup.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+
+    <script type="text/javascript" src="/javascript/jquery-ui.min.js"></script>
+
+
+    <link href="/css/jquery/jquery-ui.css" rel="stylesheet">
+    <link href="/css/jquery/jquery-ui.min.css" rel="stylesheet">
+    <link href="/css/jquery/jquery-ui.structure.css" rel="stylesheet">
+    <link href="/css/jquery/jquery-ui.structure.min.css" rel="stylesheet">
+    <link href="/css/jquery/jquery-ui.theme.css" rel="stylesheet">
+    <link href="/css/jquery/jquery-ui.theme.min.css" rel="stylesheet">
 	<!-- Bootstrap Core CSS -->
     <link href="/css/bootstrap.min.css" rel="stylesheet">
 
@@ -18,7 +27,7 @@
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

@@ -352,7 +352,7 @@
                     typework:$('#typework').val()
                 }
             }
-            $.post('<?php echo site_url("usermanager/addTypeWork")?>', send, function(data){
+            $.post('<?php echo site_url("usermanager/deleteStorage")?>', send, function(data){
                 location.reload();
             });
         }

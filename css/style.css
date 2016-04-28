@@ -8,9 +8,7 @@ body {
 body {
     background: whitesmoke !important;
 }
-/*pre {*/
-    /*display: none;*/
-/*}*/
+
 .errorMsg
 {
 
@@ -25,6 +23,28 @@ top: 20;
     padding: 10% 0 0;
     margin: auto;
     text-align: center;
+}
+.listuser {
+    width: 100%;
+}
+input#typework {
+    width: 240px;
+}
+.type_product table, .type_material table, .typeWork table, .listuser table {
+    width: 98%;
+    margin-top: 25px;
+    border: 1px solid gainsboro;
+    background: #FBFBFB;
+}
+.btn.btn-danger {
+    float: right;
+}
+.type_product table, tr, .type_material table tr, .typeWork table tr, .listuser table tr {
+    border: 1px solid #E0DEDE;
+}
+.type_product table tr td, .type_material table tr td, .typeWork table tr td, .listuser table tr td {
+text-align:center;
+padding:5px;
 }
 .loginform {
     /* margin: 0 auto; */
