@@ -38,6 +38,10 @@ class usermanager extends CI_Controller {
         $data['type_work'] = $this->setting->getAllTypeWork();
         $data['type_materials'] = $this->setting->getAllTypeMaterial();
         $data['type_product']   = $this->setting->getAllTypeProduct();
+        $data['menu'][]= array(
+            'item' =>  anchor('usermanager', 'Управление Пользователями')
+        );
+
 //        print_r($data);
 //        die();
 
