@@ -82,6 +82,24 @@ Class User extends CI_Model
     }
 
 
+    public function menu($data = array())
+    {
+        $data['menu'][]= array(
+            'item' =>  anchor('usermanager', 'Управление Пользователями')
+        );
+        $data['menu'][]= array(
+            'item' =>  anchor('storage', 'Управление Складом')
+        );
+        $data['menu'][]= array(
+            'item' =>  anchor('order', 'Управление задачами')
+        );
+        $data['menu'][]= array(
+            'item' =>  anchor('report', 'Управление отчеты')
+        );
+
+        return $data;
+    }
+
 
 
 

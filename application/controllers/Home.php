@@ -30,12 +30,7 @@ class Home extends CI_Controller {
     public function index()
     {
         $data = array();
-        $data['menu'][]= array(
-            'item' =>  anchor('usermanager', 'Управление Пользователями')
-        );
-        $data['menu'][]= array(
-            'item' =>  anchor('storage', 'Управление Складом')
-        );
+        $data = $this->user->menu($data);
         $this->load->view('common/header');
         $this->load->view('common/msg',$data);
         $this->load->view('common/leftbar',$data);

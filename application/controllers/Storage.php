@@ -40,7 +40,7 @@ class Storage extends CI_Controller
         $data['manufacturers']  = $this->setting->getAllManufacturer();
         $this->table->set_heading('ID', 'Номер Накладной', 'Производитель', 'Количество', 'Вес', 'Материал', 'Дата', 'Коментарий', 'Сумма');
         $data['storage'] = $this->storagemodel->getAllStorage();
-
+        $data = $this->user->menu($data);
 //        echo "<pre>";
 //        print_r($data['storage']);
 //        echo "</pre>";

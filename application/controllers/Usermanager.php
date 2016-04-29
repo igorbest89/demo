@@ -40,7 +40,7 @@ class usermanager extends CI_Controller {
         $data['type_product']   = $this->setting->getAllTypeProduct();
 
         $data['manufacturers']  = $this->setting->getAllManufacturer();
-
+        $data = $this->user->menu($data);
 //        print_r($data);
 //        die();
 
