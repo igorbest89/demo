@@ -37,7 +37,7 @@
 
     function dateStorage()
         {
-            $.post('<?php echo site_url("report/showStorage")?>',$('#matFilter').serializeArray(),function(data){
+            $.post('<?php echo site_url("report/showStorage")?>',$('#datefilter').serializeArray(),function(data){
                 console.log(data);
                 $('#data').html(data);
             });

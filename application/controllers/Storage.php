@@ -38,13 +38,22 @@ class Storage extends CI_Controller
 
         $data['type_materials'] = $this->setting->getAllTypeMaterial();
         $data['manufacturers']  = $this->setting->getAllManufacturer();
-        $this->table->set_heading('ID', 'Номер Накладной', 'Производитель', 'Количество', 'Вес', 'Материал', 'Дата', 'Коментарий', 'Сумма');
+        $this->table->set_heading('ID', 'Номер Накладной', 'Производитель', 'Количество', 'Вес', 'Материал', 'Дата', 'Коментарий', 'Сумма', "Действие");
+        $temp =  $this->storagemodel->getAllStorage();
+        foreach($temp as $value)
+        {
+            $data['storage'][] = $value;
+            $data['storage']['action']= " <div class=\"btn btn-primary\" onclick=\"getStorage('".$value['id_storage']."')\"><i class=\"fa fa-pencil\"></i> </div>
+            <div class=\"btn btn-danger\" onclick=\"deleteStorage('".$value['id_storage']."')\"><i class=\"fa fa-trash\"></i> </div>";
+        }
         $data['storage'] = $this->storagemodel->getAllStorage();
+
+
         $data = $this->user->menu($data);
-//        echo "<pre>";
-//        print_r($data['storage']);
-//        echo "</pre>";
-//        die();
+        echo "<pre>";
+        print_r($data['storage']);
+        echo "</pre>";
+        die();
         $data['storage_table']= $this->table->generate($data['storage']);
 
 

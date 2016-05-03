@@ -5,7 +5,10 @@
  * Date: 16.04.2016
  * Time: 12:56
  */?>
- <div class="content"><h2>Управление пользователями</h2>
+
+ 
+
+ <div class="content"><h2>Добавление пользователя</h2>
  <p>В данном разделе Вы можете добавить нового пользователя в сиситему или изменить учетные данные существующего</p>
 <form class="content1" name="user">
     <label>Имя пользователя:</label><input type="text" name="username" id="username"/>
@@ -22,7 +25,9 @@
 
      </div>
 <div class="listuser">
-    <table>
+<h2>Список пользователей сиситемы</h2>
+<p>При удалении пользователя - он больше не имеет возможности войти в сиситему по своим учетным данным.</p> 
+ <table>
 
         <?php foreach($user_list as $value){?>
             <tr>
@@ -42,7 +47,8 @@
          <hr>
      </div>
      <div class="typeWork">
-        <h2>Добавить Тип работы</h2>
+        <h2>Добаление типа работы</h2>
+		<p>В данном разделе Вы можете добавить в сиситему новый тип работы или отредактировать имеющийся. Примеры типов работ: разработка модели, заказ на рост и т.п.</p>
          <div style="width: 120px; float:left;padding-right: 10px;">
              <input name="typeworkadd" id="typework" type="text" value="">
              <input name="idEditTypeWork" id="id_type_work" type="hidden" value="">
@@ -57,10 +63,14 @@
          <table>
                 <?php foreach($type_work as $value){?>
                 <tr>
-                    <td><?php echo $value->id_type_work;?></td>
-                    <td><?php echo $value->name_work;?></td>
-                    <td><div class="btn btn-danger" onclick="deleteTypeWork('<?php echo $value->id_type_work;?>')"><i class="fa fa-trash"></i> </div></td>
-                    <td><div class="btn btn-primary" onclick="editType('<?php echo $value->id_type_work;?>','<?php echo $value->name_work;?>')"><i class="fa fa-pencil"></i> </div> </td>
+                    <td style="
+    width: 5%;
+"><?php echo $value->id_type_work;?></td>
+                    <td style="
+    width: 86%;
+"><?php echo $value->name_work;?></td>
+                    <td class="btn btn-danger1"><div class="btn btn-danger" onclick="deleteTypeWork('<?php echo $value->id_type_work;?>')"><i class="fa fa-trash"></i> </div></td>
+                    <td class="btn btn-primary1"><div class="btn btn-primary" onclick="editType('<?php echo $value->id_type_work;?>','<?php echo $value->name_work;?>')"><i class="fa fa-pencil"></i> </div> </td>
                 </tr>
 
                 <?php }?>
@@ -70,7 +80,8 @@
      </div>
 <hr>
      <div class="type_material">
-         <h2>Добавление Типов расходников</h2>
+         <h2>Добавление типов расходных материалов</h2>
+		 <p>В данном разделе Вы можете добавить в сиситему новый расходный материал или отредактировать имеющийся. Примеры типов материалов: золото, серебро, блиллианты и т.п.</p>
          <div style="width: 120px; float:left;padding-right: 10px;">
              <input name="name_material" id="type_name_mat" type="text" value="">
              <input name="idEditTypeMaterial" id="id_type_mat" type="hidden" value="">
@@ -85,10 +96,14 @@
          <table>
              <?php foreach($type_materials as $value){?>
                  <tr>
-                     <td><?php echo $value->id_material;?></td>
-                     <td><?php echo $value->name_material;?></td>
-                     <td><div class="btn btn-danger" onclick="deleteTypeMat('<?php echo $value->id_material;?>')"><i class="fa fa-trash"></i> </div></td>
-                     <td><div class="btn btn-primary" onclick="editTypeMat('<?php echo $value->id_material;?>','<?php echo $value->name_material;?>')"><i class="fa fa-pencil"></i> </div> </td>
+                     <td style="
+    width: 5%;
+"><?php echo $value->id_material;?></td>
+                     <td style="
+    width: 86%;
+"><?php echo $value->name_material;?></td>
+                     <td class="btn btn-danger1"><div class="btn btn-danger" onclick="deleteTypeMat('<?php echo $value->id_material;?>')"><i class="fa fa-trash"></i> </div></td>
+                     <td class="btn btn-primary1"><div class="btn btn-primary" onclick="editTypeMat('<?php echo $value->id_material;?>','<?php echo $value->name_material;?>')"><i class="fa fa-pencil"></i> </div> </td>
                  </tr>
 
              <?php }?>
@@ -99,7 +114,8 @@
      </div>
      <hr>
      <div class="type_product">
-         <h2>Добавление Типов Продуктов</h2>
+         <h2>Добавление типов продукции</h2>
+		 <p>В данном разделе Вы можете добавить в сиситему новый тип продукции или отредактировать имеющийся. Примеры типов продукции: кольцо, браслет, серьги и т.п.</p>
          <div style="width: 120px; float:left;padding-right: 10px;">
              <input name="name_product" id="type_name_product" type="text" value="">
              <input name="idEditTypeProduct" id="id_type_product" type="hidden" value="">
@@ -114,10 +130,14 @@
          <table>
              <?php foreach($type_product as $value){?>
                  <tr>
-                     <td><?php echo $value->id_type_product;?></td>
-                     <td><?php echo $value->name;?></td>
-                     <td><div class="btn btn-danger" onclick="deleteTypeProduct('<?php echo $value->id_type_product;?>')"><i class="fa fa-trash"></i> </div></td>
-                     <td><div class="btn btn-primary" onclick="editTypeProduct('<?php echo $value->id_type_product;?>','<?php echo $value->name;?>')"><i class="fa fa-pencil"></i> </div> </td>
+                     <td style="
+    width: 5%;
+"><?php echo $value->id_type_product;?></td>
+                     <td style="
+    width: 86%;
+"><?php echo $value->name;?></td>
+                     <td class="btn btn-danger1"><div class="btn btn-danger" onclick="deleteTypeProduct('<?php echo $value->id_type_product;?>')"><i class="fa fa-trash"></i> </div></td>
+                     <td class="btn btn-primary1"><div class="btn btn-primary" onclick="editTypeProduct('<?php echo $value->id_type_product;?>','<?php echo $value->name;?>')"><i class="fa fa-pencil"></i> </div> </td>
                  </tr>
 
              <?php }?>
@@ -128,7 +148,8 @@
      </div>
 
      <div class="Manufacturer">
-         <h2>Добавление Производителей</h2>
+         <h2>Добавление поставщиков</h2>
+		 <p>В данном разделе Вы можете добавить в сиситему нового поставщика или отредактировать данные имеющегося.</p>
          <div style="width: 120px; float:left;padding-right: 10px;">
              <input name="name_manufacturer" id="type_name_manufacturer" type="text" value="">
              <input name="idEditmanufacturer" id="id_type_manufacturer" type="hidden" value="">
@@ -143,10 +164,14 @@
          <table>
              <?php foreach($manufacturers as $value){?>
                  <tr>
-                     <td><?php echo $value->id_manufacturer;?></td>
-                     <td><?php echo $value->name;?></td>
-                     <td><div class="btn btn-danger" onclick="deleteManufacturer('<?php echo $value->id_manufacturer;?>')"><i class="fa fa-trash"></i> </div></td>
-                     <td><div class="btn btn-primary" onclick="editManufacturer('<?php echo $value->id_manufacturer;?>','<?php echo $value->name;?>')"><i class="fa fa-pencil"></i> </div> </td>
+                     <td style="
+    width: 5%;
+"><?php echo $value->id_manufacturer;?></td>
+                     <td style="
+    width: 86%;
+"><?php echo $value->name;?></td>
+                     <td class="btn btn-danger1"><div class="btn btn-danger" onclick="deleteManufacturer('<?php echo $value->id_manufacturer;?>')"><i class="fa fa-trash"></i> </div></td>
+                     <td class="btn btn-primary1"><div class="btn btn-primary" onclick="editManufacturer('<?php echo $value->id_manufacturer;?>','<?php echo $value->name;?>')"><i class="fa fa-pencil"></i> </div> </td>
                  </tr>
 
              <?php }?>
