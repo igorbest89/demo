@@ -28,6 +28,28 @@ class usermanager extends CI_Controller {
             redirect('login', 'refresh');
         }
     }
+
+    private function treeMat($categories, $parent_id = 0, $parent_name = '') {
+        $output = array();
+
+        if (array_key_exists($parent_id, $categories)) {
+            if ($parent_name != '') {
+                $parent_name .= '-';
+            }
+
+            foreach ($categories[$parent_id] as $category) {
+                $output[$category['id_material']] = array(
+                    'category_id' => $category['id_material'],
+                    'name'        => $parent_name . $category['name']
+                );
+
+                $output += $this->treeMat($categories, $category['id_material'], $parent_name . $category['name_material']);
+            }
+        }
+        return $output;
+    }
+
+
     public function index()
     {
         $data = array();
@@ -38,6 +60,26 @@ class usermanager extends CI_Controller {
         $data['type_work'] = $this->setting->getAllTypeWork();
         $data['type_materials'] = $this->setting->getAllTypeMaterial();
         $data['type_product']   = $this->setting->getAllTypeProduct();
+        $data['type_material_level_0'] = $this->setting->getTypeMaterialByOption(array(
+           'parrent_id'     =>   '0'
+        ));
+
+        foreach($data['type_materials'] as $value)
+    {
+        $this->treeMat($value->id_material);
+    }
+//        echo "<pre>";
+//        print_r($this->treeMats);
+//        echo "</pre>";
+        $data['type_test'] = $this->setting->getTypeMaterialByOption(array(
+            'parrent_id'     =>   '0'
+        ));
+        $data['type_material_level_1'] = $this->setting->getTypeMaterialByOption(array(
+            'parrent_id'     =>   '1'
+        ));
+        $data['type_material_level_2'] = $this->setting->getTypeMaterialByOption(array(
+            'parrent_id'     =>   '2'
+        ));
 
         $data['manufacturers']  = $this->setting->getAllManufacturer();
         $data = $this->user->menu($data);

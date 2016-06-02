@@ -1,11 +1,12 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: igor
- * Date: 29.04.2016
- * Time: 16:42
+ * Date: 23.05.2016
+ * Time: 16:47
  */
-class Report extends CI_Controller
+class Project extends CI_Controller
 {
 
     function __construct()
@@ -16,6 +17,7 @@ class Report extends CI_Controller
         $this->load->model('storagemodel', '', TRUE);
         $this->load->model('ordermodel', '', TRUE);
         $this->load->model('repormodel', '', TRUE);
+        $this->load->model('projectmodel', '', TRUE);
 
         $this->load->library('table');
         $this->load->helper('form');
@@ -38,35 +40,40 @@ class Report extends CI_Controller
     public function index()
     {
         $data = array();
-        $data['users'] = $this->user->getAllUser();
-        $data['type_works'] = $this->setting->getAllTypeWork();
-        $data['type_materials'] = $this->setting->getAllTypeMaterial();
-        $data['type_products']  = $this->setting->getAllTypeProduct();
-        $data['active_work']    = $this->ordermodel->getNewOrder();
         $data = $this->user->menu($data);
+        if ($this->input->post('action') == 'save') {
+
+            $this->projectmodel->addProject($this->input->post());
+            redirect('storage', 'refresh');
+
+        }
+        if ($this->input->post('action') == 'update')   {
+            $this->projectmodel->updateProject($this->input->post());
+        }
+
+
+
+
+
 
         $this->load->view('common/header');
         $this->load->view('common/msg',$data);
         $this->load->view('common/leftbar');
-        $this->load->view('report',$data);
+        $this->load->view('project',$data);
 
         $this->load->view('common/footer');
     }
 
-    public function showStorage()
+    public function getListProject()
     {
         $data = array();
-        $data['info'] = $this->repormodel->storageDate($this->input->post());
-        $data['type'] = "storage";
-
-        $this->load->view('reportdata',$data);
+        $data['listProject'] = $this->projectmodel->getProjects();
+        $this->load->view('listProject',$data);
     }
-    public function showMaterialStock()
-    {
-        $data = array();
-        $data['info'] = $this->repormodel->stockMaterial($this->input->post());
-        $data['type'] = "material";
 
-        $this->load->view('reportdata',$data);
-    }
+
+
+
+
+
 }

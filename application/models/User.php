@@ -96,6 +96,9 @@ Class User extends CI_Model
         $data['menu'][]= array(
             'item' =>  anchor('report', 'Управление отчеты')
         );
+        $data['menu'][]= array(
+            'item' =>  anchor('project', 'Управление проектами')
+        );
 
         return $data;
     }

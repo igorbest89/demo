@@ -44,7 +44,7 @@ Class Setting extends CI_Model
 
     public function getAllTypeMaterial()
     {
-        $this->db->select("id_material, name_material, material_config");
+        $this->db->select("id_material, name_material, material_config, parrent_id");
         $this->db->from("type_material");
         $query = $this->db->get();
         $result = $query->result();
@@ -57,14 +57,32 @@ Class Setting extends CI_Model
 
     public function addTypeMaterial($data = array())
     {
-        $this->db->query("INSERT INTO type_material SET name_material='".$data['name_material']."', material_config='".serialize($data['config'])."'");
+        $this->db->query("INSERT INTO type_material SET name_material='".$data['name_material']."', material_config='".serialize($data['config'])."', parrent_id='".$data['parrent_id']."'");
         $ret = $this->db->insert_id();
         return $ret;
     }
 
+    public function getTypeMaterialByOption($data = array())
+    {
+//        print_r($data);
+        $sql = "SELECT * FROM type_material WHERE ";
+        if(isset($data['id_material']))
+        {
+            $sql .= " id_material=".$data['id_material']." ";
+        }
+        if(isset($data['parrent_id']))
+        {
+            $sql .= " parrent_id = '" .$data['parrent_id']."' ";
+        }
+        //print_r($sql);
+        $query = $this->db->query($sql);
+        return $query->result_array();
+
+    }
+
     public function updateTypeMaterial($data = array())
     {
-        $this->db->query("UPDATE type_material SET name_material='".$data['name_material']."', material_config='".serialize($data['config'])."' WHERE id_material='".$data['id_material']."'");
+        $this->db->query("UPDATE type_material SET name_material='".$data['name_material']."', material_config='".serialize($data['config'])."' WHERE id_material='".$data['id_material']."', parrent_id='".$data['parrent_id']."'");
     }
 
 

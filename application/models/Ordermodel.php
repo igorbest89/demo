@@ -84,24 +84,24 @@ Class Ordermodel extends CI_Model
 
     public function updateStatusOrder($id_order,$status)
     {
-        $sql = "UPDATE order SET status='".$status."' WHERE id_order='".$id_order."'";
+        $sql = "UPDATE orders SET status='".$status."' WHERE id_order='".$id_order."'";
         $this->db->query($sql);
     }
 
     public function updateDateOrderStart($id_order, $dateStart)
     {
-        $sql = "UPDATE order SET date_start='".$dateStart."' WHERE id_order='".$id_order."'";
+        $sql = "UPDATE orders SET date_start='".$dateStart."' WHERE id_order='".$id_order."'";
         $this->db->query($sql);
     }
 
     public function updateOrderComment($id_order,$comment){
-        $sql = "UPDATE order SET comment='".$comment."' WHERE id_order='".$id_order."'";
+        $sql = "UPDATE orders SET comment='".$comment."' WHERE id_order='".$id_order."'";
         $this->db->query($sql);
     }
 
     public function updateDateOrderEnd($id_order, $dateEnd)
     {
-        $sql = "UPDATE order SET date_end='".$dateEnd."' WHERE id_order='".$id_order."'";
+        $sql = "UPDATE orders SET date_end='".$dateEnd."' WHERE id_order='".$id_order."'";
         $this->db->query($sql);
     }
 

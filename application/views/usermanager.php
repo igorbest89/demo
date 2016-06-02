@@ -83,6 +83,12 @@
          <h2>Добавление типов расходных материалов</h2>
 		 <p>В данном разделе Вы можете добавить в сиситему новый расходный материал или отредактировать имеющийся. Примеры типов материалов: золото, серебро, блиллианты и т.п.</p>
          <div style="width: 120px; float:left;padding-right: 10px;">
+             <select name="parrent_id" id="parrent_id">
+                 <option value="0">Не выбран</option>
+                 <?php foreach($type_material_level_0 as $value){?>
+                     <option value="<?php echo $value['id_material']; ?>"><?php echo $value['name_material'];?></option>
+                 <?php } ?>
+             </select>
              <input name="name_material" id="type_name_mat" type="text" value="">
              <input name="idEditTypeMaterial" id="id_type_mat" type="hidden" value="">
          </div>
@@ -117,6 +123,7 @@
          <h2>Добавление типов продукции</h2>
 		 <p>В данном разделе Вы можете добавить в сиситему новый тип продукции или отредактировать имеющийся. Примеры типов продукции: кольцо, браслет, серьги и т.п.</p>
          <div style="width: 120px; float:left;padding-right: 10px;">
+
              <input name="name_product" id="type_name_product" type="text" value="">
              <input name="idEditTypeProduct" id="id_type_product" type="hidden" value="">
          </div>
@@ -254,7 +261,7 @@
              }
              $.post('<?php echo site_url("usermanager/updateTypeProduct")?>',send,function(data){
                  console.log(data);
-                 location.reload();
+//                 location.reload();
              });
 
          }
@@ -278,7 +285,7 @@
                  }
              }
              $.post('<?php echo site_url("usermanager/addTypeProduct")?>', send, function(data){
-                 location.reload();
+//                 location.reload();
              });
          }
 
@@ -300,11 +307,13 @@
                  'data':{
                      'id_material':$('#id_type_mat').val(),
                      'name_material':$('#type_name_mat').val(),
+                     'parrent_id':$('#parrent_id').val(),
                      'config':''
                  }
              }
              $.post('<?php echo site_url("usermanager/updateTypeMaterial")?>',send,function(data){
                  console.log(data);
+
                  location.reload();
              });
 
@@ -325,11 +334,12 @@
              var send ={
                  'data':{
                      name_material:$('#type_name_mat').val(),
+                     parrent_id:$('#parrent_id').val(),
                      config:''
                  }
              }
              $.post('<?php echo site_url("usermanager/addTypeMaterial")?>', send, function(data){
-                 location.reload();
+                 //location.reload();
              });
          }
 
