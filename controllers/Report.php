@@ -1,12 +1,11 @@
 <?php
-
 /**
  * Created by PhpStorm.
  * User: igor
- * Date: 23.05.2016
- * Time: 16:47
+ * Date: 29.04.2016
+ * Time: 16:42
  */
-class Project extends CI_Controller
+class Report extends CI_Controller
 {
 
     function __construct()
@@ -17,7 +16,6 @@ class Project extends CI_Controller
         $this->load->model('storagemodel', '', TRUE);
         $this->load->model('ordermodel', '', TRUE);
         $this->load->model('repormodel', '', TRUE);
-        $this->load->model('projectmodel', '', TRUE);
 
         $this->load->library('table');
         $this->load->helper('form');
@@ -40,56 +38,35 @@ class Project extends CI_Controller
     public function index()
     {
         $data = array();
+        $data['users'] = $this->user->getAllUser();
+        $data['type_works'] = $this->setting->getAllTypeWork();
+        $data['type_materials'] = $this->setting->getAllTypeMaterial();
+        $data['type_products']  = $this->setting->getAllTypeProduct();
+        $data['active_work']    = $this->ordermodel->getNewOrder();
         $data = $this->user->menu($data);
-        $data['status'] = $this->setting->getSetting('status');
-        if ($this->input->post('action') == 'save') {
-
-            $this->projectmodel->addProject($this->input->post());
-            redirect('storage', 'refresh');
-
-        }
-        if ($this->input->post('action') == 'update')   {
-//            print_r(            $this->projectmodel->updateProject());
-//            die();
-            $this->projectmodel->updateProject($this->input->post());
-        }
-
-
-
-
-
 
         $this->load->view('common/header');
         $this->load->view('common/msg',$data);
         $this->load->view('common/leftbar');
-        $this->load->view('project',$data);
+        $this->load->view('report',$data);
 
         $this->load->view('common/footer');
     }
 
-    public function getProjectById()
-    {
-        $this->output
-            ->set_content_type('application/json')
-            ->set_output(json_encode($this->projectmodel->getProjectById($this->input->post('project_id'))));
-
-    }
-
-    public function deleteProject()
-    {
-       $this->projectmodel->deleteProject($this->input->post('project_id'));
-
-    }
-    public function getListProject()
+    public function showStorage()
     {
         $data = array();
-        $data['listProject'] = $this->projectmodel->getProjects();
-        $this->load->view('listProject',$data);
+        $data['info'] = $this->repormodel->storageDate($this->input->post());
+        $data['type'] = "storage";
+
+        $this->load->view('reportdata',$data);
     }
+    public function showMaterialStock()
+    {
+        $data = array();
+        $data['info'] = $this->repormodel->stockMaterial($this->input->post());
+        $data['type'] = "material";
 
-
-
-
-
-
+        $this->load->view('reportdata',$data);
+    }
 }

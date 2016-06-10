@@ -82,38 +82,7 @@
      <div class="type_material">
          <h2>Добавление типов расходных материалов</h2>
 		 <p>В данном разделе Вы можете добавить в сиситему новый расходный материал или отредактировать имеющийся. Примеры типов материалов: золото, серебро, блиллианты и т.п.</p>
-         <div id="materialClass">
-            Имя материала:
-             <input type="text" name="name_mat_c" id="name_mat_c" value="">
-
-             Размер камня:
-             <select id="sizeC" name="sizeC">
-                 <option value="" selected>Не выбран</option>
-                 <option value="мелкий">Мелкий</option>
-                 <option value="средний">Средний</option>
-                 <option value="крупный">Крупный</option>
-             </select>
-
-             Караты: <input value="" name="sizeCarat" id="sizeCarat">
-             Цвет:
-             <select id="colorM" name="colorM">
-                 <option value="" selected>Не выбран</option>
-                 <option value="желтый">Желтый</option>
-                 <option value="белый">Белый</option>
-             </select>
-             Проба: <input value="" name="proba" id="proba">
-             <div class="btn-primary" onclick="createMat()"><i class="fa fa-plus"></i> </div>
-         </div>
          <div style="width: 120px; float:left;padding-right: 10px;">
-           <div style="display:none;">
-             <select name="parrent_id" id="parrent_id">
-                 <option value="0">Не выбран</option>
-                 <?php foreach($type_material_level_0 as $value){?>
-                     <option value="<?php echo $value['id_material']; ?>"><?php echo $value['name_material'];?></option>
-                 <?php } ?>
-             </select>
-           </div>
-
              <input name="name_material" id="type_name_mat" type="text" value="">
              <input name="idEditTypeMaterial" id="id_type_mat" type="hidden" value="">
          </div>
@@ -148,7 +117,6 @@
          <h2>Добавление типов продукции</h2>
 		 <p>В данном разделе Вы можете добавить в сиситему новый тип продукции или отредактировать имеющийся. Примеры типов продукции: кольцо, браслет, серьги и т.п.</p>
          <div style="width: 120px; float:left;padding-right: 10px;">
-
              <input name="name_product" id="type_name_product" type="text" value="">
              <input name="idEditTypeProduct" id="id_type_product" type="hidden" value="">
          </div>
@@ -286,7 +254,7 @@
              }
              $.post('<?php echo site_url("usermanager/updateTypeProduct")?>',send,function(data){
                  console.log(data);
-//                 location.reload();
+                 location.reload();
              });
 
          }
@@ -310,7 +278,7 @@
                  }
              }
              $.post('<?php echo site_url("usermanager/addTypeProduct")?>', send, function(data){
-//                 location.reload();
+                 location.reload();
              });
          }
 
@@ -319,30 +287,6 @@
 
      <script type="text/javascript">
          //типы материалов
-//         <div id="materialClass">
-//             Размер камня:
-//             <select id="sizeC" name="sizeC">
-//             <option value="мелкий">Мелкий</option>
-//             <option value="средний">Средний</option>
-//             <option value="крупный">Крупный</option>
-//             </select>
-//
-//             Караты: <input value="" name="sizeCarat" id="sizeCarat">
-//             Цвет:
-//         <select id="colorM" name="colorM">
-//             <option value="желтый">Желтый</option>
-//             <option value="белый">Белый</option>
-//             </select>
-//             <div class="btn-primary"><i class="fa fa-plus"></i> </div>
-//             </div>
-//             <input name="name_material" id="type_name_mat" type="text" value="">
-//              <input type="text" name="name_mat_c" id="name_mat_c" value="">
-         function createMat()
-         {
-            $('#type_name_mat').val($('#name_mat_c').val()+" - "+$('#proba').val()+" - "+$('#sizeC').val()+" - "+$('#sizeCarat').val()+" - "+$('#colorM').val());
-         }
-
-
          function editTypeMat(id,type_work)
          {
              $('#type_name_mat').val(type_work);
@@ -356,13 +300,11 @@
                  'data':{
                      'id_material':$('#id_type_mat').val(),
                      'name_material':$('#type_name_mat').val(),
-                     'parrent_id':$('#parrent_id').val(),
                      'config':''
                  }
              }
              $.post('<?php echo site_url("usermanager/updateTypeMaterial")?>',send,function(data){
                  console.log(data);
-
                  location.reload();
              });
 
@@ -383,12 +325,11 @@
              var send ={
                  'data':{
                      name_material:$('#type_name_mat').val(),
-                     parrent_id:$('#parrent_id').val(),
                      config:''
                  }
              }
              $.post('<?php echo site_url("usermanager/addTypeMaterial")?>', send, function(data){
-                 //location.reload();
+                 location.reload();
              });
          }
 

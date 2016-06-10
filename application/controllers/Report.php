@@ -69,4 +69,23 @@ class Report extends CI_Controller
 
         $this->load->view('reportdata',$data);
     }
+
+    public function showInStockStatus()
+    {
+        $data = array();
+        $data['info'] = $this->repormodel->getUsedMaterials($this->input->post('date_start'));
+        $data['type'] = "stostatus";
+
+        $this->load->view('reportdata',$data);
+    }
+
+    public function rashod()
+    {
+        $data = array();
+        $data['info'] = $this->repormodel->getRashodMaterials($this->input->post());
+        $data['type'] = "rashod";
+
+        $this->load->view('reportdata',$data);
+    }
+
 }

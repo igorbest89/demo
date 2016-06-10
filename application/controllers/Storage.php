@@ -15,9 +15,14 @@ class Storage extends CI_Controller
         $this->load->model('user', '', TRUE);
         $this->load->model('setting', '', TRUE);
         $this->load->model('storagemodel', '', TRUE);
+        $this->load->model('ordermodel', '', TRUE);
+        $this->load->model('repormodel', '', TRUE);
+        $this->load->model('projectmodel', '', TRUE);
 
         $this->load->library('table');
         $this->load->helper('form');
+
+
         $this->setTableTemplate();
         if (isset($_SESSION['login']->username) && isset($_SESSION['login']->password)) {
             $dataLogin = $this->user->login($_SESSION['login']->username, $_SESSION['login']->password);

@@ -16,39 +16,76 @@
                </form>
        </div>
        <div style=" margin-bottom: 44px; float:right; margin-right:20px;  width: 49%;border: 1px solid #CCCCCC;padding: 14px;border-radius: 6px;">
-        <h2>Накладные по остатку материала:</h2>
+        <h2>Накладные по остатку материалов:</h2>
 	   <br/>
        <div> <form name="matFilter" id="matFilter">
-<!--            От:<input type="text" name="date_start" id="date_startm">-->
+            От:<input type="text" name="date_start" id="date_startm">
 <!--            до:<input type="text" name="date_end" id="date_endm">-->
 
-            <label>Отчет по остатку мтериала:</label>
-            <select style="
-    width: 98%;
-    height: 39px;
-    background: #FBFBFB;
-    border: 1px solid #E0DEDE;
-    margin-bottom: 87px;
-" name="id_material" id="id_material">
-                <?php foreach($type_materials as $value){?>
-                    <option value="<?php echo $value->id_material;?>"><?php echo $value->name_material;?></option>
-                <?php } ?>
-            </select><br>
+<!--            <label>Отчет по остатку мтериала:</label>-->
+<!--            <select style="-->
+<!--    width: 98%;-->
+<!--    height: 39px;-->
+<!--    background: #FBFBFB;-->
+<!--    border: 1px solid #E0DEDE;-->
+<!--    margin-bottom: 87px;-->
+<!--" name="id_material" id="id_material">-->
+<!--                --><?php //foreach($type_materials as $value){?>
+<!--                    <option value="--><?php //echo $value->id_material;?><!--">--><?php //echo $value->name_material;?><!--</option>-->
+<!--                --><?php //} ?>
+<!--            </select><br>-->
             <div class="btn btn-primary" onclick="materialStock()">Фильровать</div>
         </form>
        </div></div>
+
+        <div style=" margin-bottom: 44px; float:right; margin-right:20px;  width: 49%;border: 1px solid #CCCCCC;padding: 14px;border-radius: 6px;">
+            <h2>Расход по промежутку:</h2>
+            <br/>
+            <div>
+                <form name="matRFilter" id="rashod">
+                    От:<input type="text" name="date_start" id="date_startm1">
+                    до:<input type="text" name="date_end" id="date_endm1">
+
+                    <!--            <label>Отчет по остатку мтериала:</label>-->
+                    <!--            <select style="-->
+                    <!--    width: 98%;-->
+                    <!--    height: 39px;-->
+                    <!--    background: #FBFBFB;-->
+                    <!--    border: 1px solid #E0DEDE;-->
+                    <!--    margin-bottom: 87px;-->
+                    <!--" name="id_material" id="id_material">-->
+                    <!--                --><?php //foreach($type_materials as $value){?>
+                    <!--                    <option value="--><?php //echo $value->id_material;?><!--">--><?php //echo $value->name_material;?><!--</option>-->
+                    <!--                --><?php //} ?>
+                    <!--            </select><br>-->
+                    <div class="btn btn-primary" onclick="materiaRashod()">Фильровать</div>
+                </form>
+            </div></div>
+
+
     </div>
     <div id="data"></div>
 
 </div>
 <script>
+    $('#id_material').chosen();
     $("#date_start").datepicker({ dateFormat: "yy-mm-dd" });
     $("#date_end").datepicker({ dateFormat: "yy-mm-dd" });
     $("#date_startm").datepicker({ dateFormat: "yy-mm-dd" });
     $("#date_endm").datepicker({ dateFormat: "yy-mm-dd" });
+    $("#date_startm1").datepicker({ dateFormat: "yy-mm-dd" });
+    $("#date_endm1").datepicker({ dateFormat: "yy-mm-dd" });
     function materialStock()
     {
-        $.post('<?php echo site_url("report/showMaterialStock")?>',$('#matFilter').serializeArray(),function(data){
+        $.post('<?php echo site_url("report/showInStockStatus")?>',$('#matFilter').serializeArray(),function(data){
+            console.log(data);
+            $('#data').html(data);
+        });
+    }
+
+    function materiaRashod()
+    {
+        $.post('<?php echo site_url("report/rashod")?>',$('#rashod').serializeArray(),function(data){
             console.log(data);
             $('#data').html(data);
         });

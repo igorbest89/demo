@@ -28,10 +28,6 @@ class usermanager extends CI_Controller {
             redirect('login', 'refresh');
         }
     }
-
-
-
-
     public function index()
     {
         $data = array();
@@ -42,23 +38,6 @@ class usermanager extends CI_Controller {
         $data['type_work'] = $this->setting->getAllTypeWork();
         $data['type_materials'] = $this->setting->getAllTypeMaterial();
         $data['type_product']   = $this->setting->getAllTypeProduct();
-        $data['type_material_level_0'] = $this->setting->getTypeMaterialByOption(array(
-           'parrent_id'     =>   '0'
-        ));
-
-
-//        echo "<pre>";
-//        print_r($this->treeMats);
-//        echo "</pre>";
-        $data['type_test'] = $this->setting->getTypeMaterialByOption(array(
-            'parrent_id'     =>   '0'
-        ));
-        $data['type_material_level_1'] = $this->setting->getTypeMaterialByOption(array(
-            'parrent_id'     =>   '1'
-        ));
-        $data['type_material_level_2'] = $this->setting->getTypeMaterialByOption(array(
-            'parrent_id'     =>   '2'
-        ));
 
         $data['manufacturers']  = $this->setting->getAllManufacturer();
         $data = $this->user->menu($data);

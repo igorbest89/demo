@@ -31,6 +31,14 @@ Class Projectmodel extends CI_Model
         return $return->result();
     }
 
+    public function getProjectById($id_project)
+    {
+        $query = "SELECT * FROM project WHERE id_project='".$id_project."'";
+
+        $return = $this->db->query($query);
+        return $return->row_array();
+
+    }
     /**
      * @param array $data
      * @return mixed
@@ -38,6 +46,7 @@ Class Projectmodel extends CI_Model
      */
     public function addProject($data = array())
     {
+
         $sql = "INSERT INTO project SET name_project='".$data['nameProject']."', desk='".$data['deskProject']."', status='".$data['statusProject']."'";
         $this->db->query($sql);
         return  $this->db->insert_id();
@@ -45,7 +54,8 @@ Class Projectmodel extends CI_Model
 
     public function updateProject($data = array())
     {
-        $sql = "UPDATE project SET name_project='".$data['nameProject']."', desk='".$data['deskProject']."', status='".$data['statusProject']."'";
+
+        $sql = "UPDATE project SET name_project='".$data['nameProject']."', desk='".$data['deskProject']."', status='".$data['statusProject']."' WHERE id_project='".$data['project_id']."' ";
         $this->db->query($sql);
 
     }

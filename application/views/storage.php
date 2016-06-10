@@ -114,7 +114,7 @@
     </div>
 </div>
 <script>
-
+    $('#type_material').chosen();
 
     function getStorage(id_sorage) {
         var send = {

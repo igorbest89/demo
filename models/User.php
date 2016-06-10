@@ -90,19 +90,12 @@ Class User extends CI_Model
         $data['menu'][]= array(
             'item' =>  anchor('storage', 'Управление Складом')
         );
-//        $data['menu'][]= array(
-//            'item' =>  anchor('order', 'Управление задачами')
-//        );
+        $data['menu'][]= array(
+            'item' =>  anchor('order', 'Управление задачами')
+        );
         $data['menu'][]= array(
             'item' =>  anchor('report', 'Управление отчеты')
         );
-        $data['menu'][]= array(
-            'item' =>  anchor('project', 'Управление проектами')
-        );
-        $data['menu'][]= array(
-            'item' =>  anchor('openTask', 'Работы')
-        );
-
 
         return $data;
     }

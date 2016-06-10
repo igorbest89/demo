@@ -44,7 +44,7 @@ Class Setting extends CI_Model
 
     public function getAllTypeMaterial()
     {
-        $this->db->select("id_material, name_material, material_config, parrent_id");
+        $this->db->select("id_material, name_material, material_config");
         $this->db->from("type_material");
         $query = $this->db->get();
         $result = $query->result();
@@ -57,27 +57,9 @@ Class Setting extends CI_Model
 
     public function addTypeMaterial($data = array())
     {
-        $this->db->query("INSERT INTO type_material SET name_material='".$data['name_material']."', material_config='".serialize($data['config'])."', parrent_id='".$data['parrent_id']."'");
+        $this->db->query("INSERT INTO type_material SET name_material='".$data['name_material']."', material_config='".serialize($data['config'])."'");
         $ret = $this->db->insert_id();
         return $ret;
-    }
-
-    public function getTypeMaterialByOption($data = array())
-    {
-//        print_r($data);
-        $sql = "SELECT * FROM type_material WHERE ";
-        if(isset($data['id_material']))
-        {
-            $sql .= " id_material=".$data['id_material']." ";
-        }
-        if(isset($data['parrent_id']))
-        {
-            $sql .= " parrent_id = '" .$data['parrent_id']."' ";
-        }
-        //print_r($sql);
-        $query = $this->db->query($sql);
-        return $query->result_array();
-
     }
 
     public function updateTypeMaterial($data = array())
@@ -147,21 +129,6 @@ Class Setting extends CI_Model
     {
         $this->db->query("DELETE FROM manufacturer WHERE id_manufacturer='".$id_product."'");
     }
-
-
-    public function getSetting($key)
-    {
-        $sql = "SELECT value FROM setting WHERE key_s='".$key."'";
-        $query = $this->db->query($sql);
-        $row = $query->row();
-       return unserialize($row->value);
-    }
-
-    public function setSetting($key, $value){
-        $this->db->query("DELETE FROM setting WHERE key_s='".$key."'");
-        $this->db->query("INSERT INTO  setting SET key_s='".$key."', value='".serialize($value)."'");
-    }
-
 
 
 }

@@ -7,10 +7,8 @@
     <script type="text/javascript" src="/javascript/bPopup.js"></script>
 
     <script type="text/javascript" src="/javascript/jquery-ui.min.js"></script>
-    <script type="text/javascript"  src="/javascript/chosen.jquery.min.js"></script>
 
 
-    <link href="/css/chosen.min.css" rel="stylesheet">
     <link href="/css/jquery/jquery-ui.css" rel="stylesheet">
     <link href="/css/jquery/jquery-ui.min.css" rel="stylesheet">
     <link href="/css/jquery/jquery-ui.structure.css" rel="stylesheet">
