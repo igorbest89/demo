@@ -20,7 +20,12 @@
             </strong>
         </div>
     <?php } ?>
-
+<div style="
+    margin-top: 44px;
+    padding-top: 70px;
+	width: 95%;
+">
+<h2>Управление задачей <?php echo $task_info['task_name']; ?></h2>
     <form action="<?php echo site_url("Taskmanager/updateTask") ?>" enctype="multipart/form-data" id="formUpdateTask"
           method="POST">
 
@@ -31,7 +36,7 @@
             <input name="task_name" type="text" id="task_name" value="<?php echo $task_info['task_name']; ?>"><br></div>
         <div style="width:49%; margin-bottom:20px; float:right"><span>Артикул: </span>
             <input name="article" type="text" id="article" value="<?php echo $task_info['artikle']; ?>"><br></div>
-        <div style="width:49%; margin-bottom:20px; float:left">
+    
             <div style="width:49%; margin-bottom:20px; float:right"><span>Внутринний артикул: </span>
                 <input name="in_artikle" type="text" id="in_artikle"
                        value="<?php echo $task_info['in_artikle']; ?>"><br></div>
@@ -61,7 +66,7 @@
                         <?php } ?>
                     <?php } ?>
                 </select></div>
-            <div style="margin-bottom:20px;"><span>Вес изделия (заполнять при необходимости):</span><br>
+            <div style="width:49%; margin-bottom:20px; float:left;"><span>Вес изделия (заполнять при необходимости):</span><br>
                 <input type="text" name="weight" id="weight" value="<?php echo $task_info['weight']; ?>"></div>
             <div style="width:100%;"><span>Коменетарий к задаче:</span>
                 <input style="height:100px;" type="text" name="comment" id="comment"
@@ -71,7 +76,7 @@
             <div style="margin-bottom:20px;"><span>Статус задачи:</span><br>
 
 
-                <select name="status" id="status">
+                <select class="tipmat" name="status" id="status">
                     <?php foreach ($status as $key => $value) { ?>
                         <?php if ($key == $task_info['status']) { ?>
                             <option value="<?php echo $key; ?>" selected><?php echo $value; ?></option>
@@ -83,7 +88,7 @@
             </div>
             <div style="
     width: 49%;
-    float: right;
+    float: left;
 	margin-bottom: 20px;
 
 "><span>Дата начала</span>
@@ -130,7 +135,7 @@
             </div>
         </form>
     </div>
-</div>
+</div></div>
 <script>
 
     $(document).ready(function () {

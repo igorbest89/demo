@@ -1,4 +1,6 @@
-<div class="content">
+<div style="
+    width: 79%;
+" class="content">
     <?php if(isset($error)){?>
   <div class="alert alert-danger">
          <strong>
@@ -10,8 +12,10 @@
       <?php } ?>
 
 
-    <div id="addOrder">
-        <h1>Управление задачами</h1>
+    <div style="
+    width: 96%;
+" id="addOrder">
+        <h1>Управление задачами: добавление, редактирование задачь в проекте</h1>
 
         <p>В данном разделе Вы можете поставить новую задачу в работу</p>
 
@@ -36,34 +40,37 @@
                         <option value="<?php echo $value->id_user; ?>"><?php echo $value->username; ?></option>
                     <?php } ?>
                 </select></div>
-            <div style="margin-bottom:20px;"><span>Вес изделия (заполнять при необходимости):</span><br>
+            <div style="width:49%; margin-bottom:20px; float:left;"><span>Вес изделия (заполнять при необходимости):</span><br>
                 <input type="text" name="weight" id="weight"></div>
-            <div style="width:100%;"><span>Коменетарий к задаче:</span>
-                <input style="height:100px;" type="text" name="comment" id="comment"></div>
-            <br>
-            <div style="margin-bottom:20px;"><span>Статус задачи:</span><br>
+				<div style="width:49%; margin-bottom:20px; float:right;"><span>Статус задачи:</span><br>
 
 
-                <select name="status" id="status">
+                <select class="tipmat" name="status" id="status">
                     <?php foreach($status as $key=>$value){?>
                     <option value="<?php echo $key;?>"><?php echo $value;?></option>
 
                     <?php }?>
                 </select>
             </div>
-            <div style="float:left;"><span>Загрузить Файлы к задаче:</span>
+            <div style="width:100%;"><span>Коменетарий к задаче:</span>
+                <input style="height:100px;" type="text" name="comment" id="comment"></div>
+            <br>
+            
+            <div><span>Загрузить Файлы к задаче:</span>
                 <input type="file" min="1" max="9999" name="file[]" multiple="true"/></div>
-            <div style="float:right;"><input class="indown" type="submit" name="load_files" value="Сохранить задачу"/>
+            <div style="float:right; margin-top: -21px;"><input class="indown" type="submit" name="load_files" value="Сохранить задачу"/>
                 <br>
 
             </div>
             <!--                <div class="btn btn-primary" id="btnSaveOrder" onclick="addOrder()">Сохранить заказ</div>-->
         </form>
     </div>
+	<hr>
     <div id="listTask">
         <h2>Список задач проекта</h2>
         <div id="listTaskTable"></div>
     </div>
+	<hr>
     <div id="filesList">
         <h2>Список фалов в проекте</h2>
         <div id="listFilesTable"></div>

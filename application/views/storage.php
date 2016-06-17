@@ -7,7 +7,17 @@
         <?php echo form_open('storage'); ?>
         <input type="hidden" name="action" id="action" value="save">
         <input type="hidden" name="id_storage" id="id_storage" value="-1">
+<div style="
+    width: 100%;
+    float: right;
+	margin-bottom: 20px;
 
+"><span>Укажите тип сырья (материал), который необходимо добавить в базу</span>
+            <select class="tipmat" name="type_material" id="type_material">
+                <?php foreach ($type_materials as $value) { ?>
+                    <option value="<?php echo $value->id_material; ?>"><?php echo $value->name_material; ?></option>
+                <?php } ?>
+            </select></div>
         <div style="
     width: 49%;
     float: left;
@@ -20,39 +30,28 @@
     float: right;
 	margin-bottom: 20px;
 
-"><span>Тип сырья (материал)</span>
-            <select class="tipmat" name="type_material" id="type_material">
-                <?php foreach ($type_materials as $value) { ?>
-                    <option value="<?php echo $value->id_material; ?>"><?php echo $value->name_material; ?></option>
-                <?php } ?>
-            </select></div>
-        <div style="
-    width: 49%;
-    float: left;
-	margin-bottom: 20px;
-
-"><span>Количество:</span>
+"><span>Количество в штуках (для камней):</span>
             <input type="text" name="count" id="count"></div>
         <div style="
     width: 49%;
     float: right;
 	margin-bottom: 20px;
 
-"><span>Вес:</span>
+"><span>Вес в граммах (для металлов):</span>
             <input type="text" name="weight" id="weight"></div>
         <div style="
     width: 49%;
     float: left;
 	margin-bottom: 20px;
 
-"><span>Ширина:</span>
+"><span>Ширина камня:</span>
             <input type="text" name="width" id="width"></div>
         <div style="
     width: 49%;
     float: right;
 	margin-bottom: 20px;
 
-"><span>Высота:</span>
+"><span>Высота камня:</span>
             <input type="text" name="height" id="height">
         </div>
         <div style="
@@ -60,7 +59,7 @@
     float: left;
 	margin-bottom: 20px;
 
-"><span>Длинна:</span>
+"><span>Длинна камня:</span>
             <input type="text" name="deep" id="deep">
         </div>
 
@@ -84,13 +83,13 @@
         <div style="
     width: 49%;
     float: right;
-	margin-bottom: 20px;
+	margin-bottom: 33px;
 
-"><span>Дата</span>
+"><span>Дата поставки</span>
             <input name="input-date" id="input-data" type="text"></div>
         <span>Коментарий к завозу:</span><br>
         <textarea name="comment" id="comment"></textarea><br>
-        <span>Сумма по накладной:</span>
+        <span>Сумма по накладной (грн.):</span>
         <input type="text" name="sum" id="sum" value="0">
 
         <div style="

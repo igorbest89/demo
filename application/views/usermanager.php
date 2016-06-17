@@ -8,9 +8,12 @@
 
  
 
- <div class="content"><h2>Добавление пользователя</h2>
+ <div class="content"><h2 style="
+    margin-top: 40px;
+">Добавление пользователя</h2>
  <p>В данном разделе Вы можете добавить нового пользователя в сиситему или изменить учетные данные существующего</p>
 <form class="content1" name="user">
+<h3 >Укажите данные пользователя</h3>
     <label>Имя пользователя:</label><input type="text" name="username" id="username"/>
     <label>Пароль пользователя:</label><input type="text" name="password" id="password"/>
     <label>Права пользователя:</label><select name="permission" id="permission">
@@ -55,10 +58,16 @@
          </div>
 
          <div id="addWork">
-            <div class="btn btn-primary" onclick="addTypeWork()"><i class="fa fa-plus"></i> </div>
+            <div style="
+    padding: 1px;
+    /* margin-left: -19px; */
+" class="btn btn-primary" onclick="addTypeWork()"><i class="fa fa-plus"></i> </div>
          </div>
          <div id="updateWork" style="display: none;">
-             <div class="btn btn-primary" onclick="updateTypeWork()"><i class="fa fa-save"></i> </div>
+             <div style="
+    padding: 1px;
+    /* margin-left: -19px; */
+" class="btn btn-primary" onclick="updateTypeWork()"><i class="fa fa-save"></i> </div>
          </div>
          <table>
                 <?php foreach($type_work as $value){?>
@@ -81,30 +90,35 @@
 <hr>
      <div class="type_material">
          <h2>Добавление типов расходных материалов</h2>
-		 <p>В данном разделе Вы можете добавить в сиситему новый расходный материал или отредактировать имеющийся. Примеры типов материалов: золото, серебро, блиллианты и т.п.</p>
+		 <p>В данном разделе Вы можете добавить в сиситему новый расходный материал или отредактировать уже существующий. Примеры типов материалов: золото, серебро, блиллианты и т.п. Для нового материала заполняйте только необходимые поля.</p><br/>
          <div id="materialClass">
-            Имя материала:
+            
+			<h3>Укажите данные нового материала</h3>
+			<p>Название материала:</p>
              <input type="text" name="name_mat_c" id="name_mat_c" value="">
-
-             Размер камня:
+<p>Проба:</p> 
+<input value="" name="proba" id="proba">
+ <p>Вес / каратность: </p> <input value="" name="sizeCarat" id="sizeCarat">
+ <p>Цвет:</p>
+             <select id="colorM" name="colorM">
+                 <option value="" selected>Не выбран</option>
+                 <option value="желтый">Желтый</option>
+                 <option value="белый">Белый</option>
+				 <option value="розовый">Розовый</option>
+             </select>
+             <p>Размер камня:</p>
              <select id="sizeC" name="sizeC">
                  <option value="" selected>Не выбран</option>
                  <option value="мелкий">Мелкий</option>
                  <option value="средний">Средний</option>
                  <option value="крупный">Крупный</option>
-             </select>
-
-             Караты: <input value="" name="sizeCarat" id="sizeCarat">
-             Цвет:
-             <select id="colorM" name="colorM">
-                 <option value="" selected>Не выбран</option>
-                 <option value="желтый">Желтый</option>
-                 <option value="белый">Белый</option>
-             </select>
-             Проба: <input value="" name="proba" id="proba">
-             <div class="btn-primary" onclick="createMat()"><i class="fa fa-plus"></i> </div>
-         </div>
-         <div style="width: 120px; float:left;padding-right: 10px;">
+             </select>            
+             <div id="savemat" class="btn-primary" onclick="createMat()">Создать тип материала</div>
+         <p style="
+    font-weight: bold;
+    color: #D9534F;
+">Проверьте созданный тип материала и сохраните его в базу данных</p>
+		 <div>
            <div style="display:none;">
              <select name="parrent_id" id="parrent_id">
                  <option value="0">Не выбран</option>
@@ -114,14 +128,22 @@
              </select>
            </div>
 
-             <input name="name_material" id="type_name_mat" type="text" value="">
+             <input style="
+    width: 100%;
+" name="name_material" id="type_name_mat" type="text" value="">
              <input name="idEditTypeMaterial" id="id_type_mat" type="hidden" value="">
          </div>
-         <div id="addMat">
-             <div class="btn btn-primary" onclick="addTypeMat()"><i class="fa fa-plus"></i> </div>
+         <div style="
+    float: inherit;
+    width: 100%;
+    margin-left: 0;
+" id="addMat">
+             <div  id="savemat" class="btn btn-primary" onclick="addTypeMat()"><i class="fa fa-plus"></i>Сохранить материал</div>
          </div>
+		 </div>
+         
          <div id="updateMat" style="display: none;">
-             <div class="btn btn-primary" onclick="updateTypeMat()"><i class="fa fa-save"></i> </div>
+             <div class="btn btn-primary" onclick="updateTypeMat()"><i class="fa fa-save"></i>Сохранить материал в сиситеме </div>
          </div>
 
          <table>
@@ -145,15 +167,18 @@
      </div>
      <hr>
      <div class="type_product">
-         <h2>Добавление типов продукции</h2>
-		 <p>В данном разделе Вы можете добавить в сиситему новый тип продукции или отредактировать имеющийся. Примеры типов продукции: кольцо, браслет, серьги и т.п.</p>
+         <h2>Добавление видов продукции</h2>
+		 <p>В данном разделе Вы можете добавить в сиситему новый тип продукции или отредактировать имеющийся. Примеры видов продукции: кольцо, браслет, серьги и т.п.</p>
          <div style="width: 120px; float:left;padding-right: 10px;">
 
              <input name="name_product" id="type_name_product" type="text" value="">
              <input name="idEditTypeProduct" id="id_type_product" type="hidden" value="">
          </div>
          <div id="addProduct">
-             <div class="btn btn-primary" onclick="addTypeProduct()"><i class="fa fa-plus"></i> </div>
+             <div style="
+    padding: 1px;
+    /* margin-left: -19px; */
+" class="btn btn-primary" onclick="addTypeProduct()"><i class="fa fa-plus"></i> </div>
          </div>
          <div id="updateProduct" style="display: none;">
              <div class="btn btn-primary" onclick="updateTypeProduct()"><i class="fa fa-save"></i> </div>
@@ -187,7 +212,10 @@
              <input name="idEditmanufacturer" id="id_type_manufacturer" type="hidden" value="">
          </div>
          <div id="addManufacturer">
-             <div class="btn btn-primary" onclick="addManufacturer()"><i class="fa fa-plus"></i> </div>
+             <div style="
+    padding: 1px;
+    /* margin-left: -19px; */
+" class="btn btn-primary" onclick="addManufacturer()"><i class="fa fa-plus"></i> </div>
          </div>
          <div id="updateManufacturer" style="display: none;">
              <div class="btn btn-primary" onclick="updateManufacturer()"><i class="fa fa-save"></i> </div>
@@ -310,7 +338,7 @@
                  }
              }
              $.post('<?php echo site_url("usermanager/addTypeProduct")?>', send, function(data){
-//                 location.reload();
+                 location.reload();
              });
          }
 
@@ -388,7 +416,8 @@
                  }
              }
              $.post('<?php echo site_url("usermanager/addTypeMaterial")?>', send, function(data){
-                 //location.reload();
+                 location.reload();
+                 location.reload();
              });
          }
 
